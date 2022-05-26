@@ -3,6 +3,7 @@ package com.example.locationreminder
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.viewModels
 import com.example.locationreminder.databinding.ActivityAuthBinding
 import com.firebase.ui.auth.AuthUI
@@ -21,6 +22,15 @@ class AuthActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityAuthBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        binding.authenticateButton.setOnClickListener { launchSignIn() }
+
+        viewModel.authenticationState.observe(this){
+            when (it) {
+                AuthViewModel.AuthenticationState.AUTHENTICATED -> switchActivities()
+                else -> Log.e(TAG, "Authentication $it")
+            }
+        }
     }
 
     private fun launchSignIn() {
@@ -36,7 +46,7 @@ class AuthActivity : AppCompatActivity() {
     }
 
     private fun switchActivities() {
-        val intent = Intent(this, RemindersActivity::class.java)
+        val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
     }
 }
