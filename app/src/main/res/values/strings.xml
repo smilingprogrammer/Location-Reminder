@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Location Reminder</string>
+    <string name="no_reminders">No Reminders</string>
 </resources>

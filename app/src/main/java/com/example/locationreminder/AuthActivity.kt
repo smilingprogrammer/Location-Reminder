@@ -23,7 +23,7 @@ class AuthActivity : AppCompatActivity() {
         binding = ActivityAuthBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.authenticateButton.setOnClickListener { launchSignIn() }
+        binding.authenticateButton.setOnClickListener { launchSignInUIFlow() }
 
         viewModel.authenticationState.observe(this){
             when (it) {
@@ -33,7 +33,7 @@ class AuthActivity : AppCompatActivity() {
         }
     }
 
-    private fun launchSignIn() {
+    private fun launchSignInUIFlow() {
         val providers = arrayListOf(
             AuthUI.IdpConfig.EmailBuilder().build(), AuthUI.IdpConfig.GoogleBuilder().build()
         )
