@@ -35,6 +35,11 @@ class ReminderFragment : Fragment() {
 //        viewModel.loadReminders()
 //    }
 
+    private fun setUpRecyclerView() {
+        val adapter = ReminderAdapter()
+        binding.reminderRecyclerView.adapter = adapter
+    }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.logout -> {

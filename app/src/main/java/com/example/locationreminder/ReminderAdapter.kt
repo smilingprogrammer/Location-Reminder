@@ -7,21 +7,21 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.recyclerview.widget.RecyclerView
 import com.example.locationreminder.databinding.ListReminderBinding
 
-class ReminderAdapter<T>(private val callback: ((item: T) -> Unit)? = null)
-    : RecyclerView.Adapter<ReminderAdapter<T>.ReminderViewHolder<T>>(){
+class ReminderAdapter(private val callback: ((item: ReminderData) -> Unit)? = null)
+    : RecyclerView.Adapter<ReminderAdapter.ReminderViewHolder>(){
 
-    private var _items: MutableList<T> = mutableListOf()
-    private val items: List<T> get() = this._items
+    private var _items: MutableList<ReminderData> = mutableListOf()
+    private val items: List<ReminderData> get() = this._items
 
-    inner class ReminderViewHolder<T>(private val binding: ListReminderBinding)
+    inner class ReminderViewHolder(private val binding: ListReminderBinding)
         : RecyclerView.ViewHolder(binding.root){
 
-            fun bind(item: T) {
+            fun bind(item: ReminderData) {
 
             }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ReminderViewHolder<T> {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ReminderViewHolder {
         return ReminderViewHolder(
             ListReminderBinding.inflate(
                 LayoutInflater.from(parent.context), parent, false
@@ -29,7 +29,7 @@ class ReminderAdapter<T>(private val callback: ((item: T) -> Unit)? = null)
         )
     }
 
-    override fun onBindViewHolder(holder: ReminderViewHolder<T>, position: Int) {
+    override fun onBindViewHolder(holder: ReminderViewHolder, position: Int) {
         val item = getItem(position)
         holder.bind(item)
         holder.itemView.setOnClickListener {
@@ -42,7 +42,7 @@ class ReminderAdapter<T>(private val callback: ((item: T) -> Unit)? = null)
     }
 
     fun getItem(position: Int) = _items[position]
-    fun addData(items: List<T>){
+    fun addData(items: List<ReminderData>){
         _items.addAll(items)
         notifyDataSetChanged()
     }
