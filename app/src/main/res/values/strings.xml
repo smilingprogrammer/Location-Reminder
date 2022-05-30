@@ -13,4 +13,7 @@
     <string name="reminder_location">Select Location</string>
     <string name="reminder_title">Title</string>
     <string name="reminder_desc">Description</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="save">SAVE</string>
 </resources>

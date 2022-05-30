@@ -23,6 +23,7 @@ class SaveFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = SaveFragmentBinding.inflate(layoutInflater, container, false)
+
         return binding.root
     }
 

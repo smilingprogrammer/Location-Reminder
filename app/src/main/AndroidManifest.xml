@@ -12,14 +12,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LocationReminder" >
         <activity
-            android:name=".DetailActivity"
-            android:exported="false"
-            android:label="@string/title_activity_detail"
-            android:theme="@style/Theme.LocationReminder.NoActionBar" />
-        <activity
-            android:name=".RemindersActivity"
-            android:exported="false" />
-        <activity
             android:name=".AuthActivity"
             android:exported="true" >
             <intent-filter>
