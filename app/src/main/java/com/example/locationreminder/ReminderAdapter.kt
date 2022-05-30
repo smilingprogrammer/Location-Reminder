@@ -17,7 +17,6 @@ class ReminderAdapter(private val callback: ((item: ReminderData) -> Unit)? = nu
         : RecyclerView.ViewHolder(binding.root){
 
             fun bind(item: ReminderData) {
-
             }
     }
 

@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.example.locationreminder.databinding.ReminderFragmentBinding
 import com.firebase.ui.auth.AuthUI
 
@@ -26,8 +27,13 @@ class ReminderFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        setUpRecyclerView()
         binding.refreshLayout.setOnRefreshListener { viewModel.loadReminders() }
+        binding.addReminder.setOnClickListener {
+            findNavController().navigate(
+                ReminderFragmentDirections.actionReminderFragmentToSaveFragment()
+            )
+        }
     }
 
 //    override fun onResume() {
